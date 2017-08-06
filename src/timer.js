@@ -1,13 +1,17 @@
-function Timer(callbacks, step = 1/120) {
-  var last = 0, acc = 0, tick = 0, frameId;
+function Timer(callbacks, step) {
+  var last = 0,
+      acc = 0,
+      tick = 0,
+      inc = step || 1/120,
+      frameId;
 
-  function onFrame(time = 0) {
+  function onFrame(time) {
     if (last !== null) {
       acc = acc + (time - last) / 1000;
-      while (acc > step) {
-        callbacks.update(step, tick);
+      while (acc > inc) {
+        callbacks.update(inc, tick);
         tick = tick + 1;
-        acc = acc - step;
+        acc = acc - inc;
       }
     }
     last = time;
