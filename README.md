@@ -11,13 +11,13 @@ npm install game-timer
 2) Include Timer function.
 
 ```js
-var GameTimer = require('game-timer');
+const GameTimer = require('game-timer');
 ```
 
 3) Initialize by configuring with an `update` callback and a `render` callback.
 
 ```js
-var timer = GameTimer({
+const timer = GameTimer({
     update: (deltaTime) => {
         myGame.update(deltaTime);
     },
