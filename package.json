@@ -1,6 +1,6 @@
 {
   "name": "game-timer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Minimal fixed step game timer based on requestAnimation frame.",
   "main": "src/timer.js",
   "scripts": {
