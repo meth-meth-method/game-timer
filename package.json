@@ -1,0 +1,30 @@
+{
+  "name": "game-timer",
+  "version": "0.1.0",
+  "description": "Minimal fixed step game timer based on requestAnimation frame.",
+  "main": "src/timer.js",
+  "scripts": {
+    "test": "mocha './src/**/*-test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meth-meth-method/game-timer.git"
+  },
+  "keywords": [
+    "game",
+    "timer",
+    "requestAnimationFrame",
+    "timestep"
+  ],
+  "author": "Pontus Alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meth-meth-method/game-timer/issues"
+  },
+  "homepage": "https://github.com/meth-meth-method/game-timer#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.5.0",
+    "sinon": "^3.0.0"
+  }
+}
