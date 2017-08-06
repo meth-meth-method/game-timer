@@ -28,7 +28,10 @@ function Timer(callbacks, step) {
     cancelAnimationFrame(frameId);
   }
 
-  return {start, stop};
+  return {
+    start: start,
+    stop: stop,
+  };
 }
 
 module.exports = Timer;
