@@ -2,10 +2,8 @@
   "name": "game-timer",
   "version": "1.0.1",
   "description": "Minimal fixed step game timer based on requestAnimation frame.",
-  "main": "src/timer.js",
-  "scripts": {
-    "test": "mocha './src/**/*-test.js'"
-  },
+  "author": "Pontus Alexander",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meth-meth-method/game-timer.git"
@@ -16,15 +14,49 @@
     "requestAnimationFrame",
     "timestep"
   ],
-  "author": "Pontus Alexander",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/meth-meth-method/game-timer/issues"
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.ts",
+  "engines": {
+    "node": ">=10"
   },
-  "homepage": "https://github.com/meth-meth-method/game-timer#readme",
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "prepare": "run-s build",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint src --ext .ts,.tsx",
+    "test:unit": "cross-env CI=1 jest test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom"
+  },
+  "peerDependencies": {},
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "mocha": "^3.5.0",
-    "sinon": "^3.0.0"
-  }
+    "@testing-library/jest-dom": "^4.2.4",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^12.12.38",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^27.1.0",
+    "microbundle-crl": "^0.13.10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.1.0"
+  },
+  "files": [
+    "dist"
+  ]
 }

@@ -4,38 +4,38 @@ A tiny (640 bytes), powerful game timer that provides a fixed timestep and abstr
 
 ## Usage
 
-1) Install
+1. Install
 
 ```bash
 npm install game-timer
 ```
 
-2) Include Timer function.
+2. Include Timer function.
 
-```js
-const GameTimer = require('game-timer');
+```ts
+import { createTimer } from "game-timer";
 ```
 
-3) Initialize by configuring with an `update` callback and a `render` callback.
+3. Initialize by configuring with an `update` callback and a `render` callback.
 
-```js
-const timer = GameTimer({
-    update: (deltaTime) => {
-        myGame.update(deltaTime);
-    },
-    render: () => {
-        drawGame(myGame, canvas);
-    },
+```ts
+const timer = createTimer({
+  update: (deltaTime) => {
+    myGame.update(deltaTime);
+  },
+  render: () => {
+    drawGame(myGame, canvas);
+  },
 });
 ```
 
-4) Start timer. Your `update` callback will be called with a fixed time step in seconds as time progress and your `render` callback will be called when the browser is ready to render a another frame.
+4. Start timer. Your `update` callback will be called with a fixed time step in seconds as time progress and your `render` callback will be called when the browser is ready to render a another frame.
 
 ```js
 timer.start();
 ```
 
-5) Stop if needed. This will also stop rendering callback from being emitted.
+5. Stop if needed. This will also stop rendering callback from being emitted.
 
 ```js
 timer.stop();
@@ -46,14 +46,13 @@ timer.stop();
 Beyond the `update` and `render` callback `GameTimer` takes a second argument which will be used as the time step. The default time step is **1/120th** of a second (**0.008333333333333333** seconds).
 
 ```js
-const timer = new GameTimer({
+const timer = createTimer({
     update: ...,
     render: ...,
 }, 1/320);
 ```
 
 A lower time step makes simulations more accurate but requires more CPU. Changing time step after game logic has been establish might affect simulations.
-
 
 ## Why fixed time step?
 
